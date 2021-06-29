@@ -1,0 +1,61 @@
+﻿<Window x:Class="Wareneingang.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wareneingang"
+        mc:Ignorable="d"
+        Title="LagerBestand Login" Height="400"
+        Width="350"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Background="Transparent"
+        MouseDown="Window_MouseDown">
+    <Grid x:Name="main_grid" Width="350">
+        <Grid x:Name="bodyguard_grid" HorizontalAlignment="Left" VerticalAlignment="Top" Width="0" Height="0">
+            <Label x:Name="label_bgfill" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,165,-351,-399.96" Height="234.96" Width="350">
+                <Label.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="#FF6078AA" Offset="1" />
+                        <GradientStop Color="WhiteSmoke" />
+                    </LinearGradientBrush>
+                </Label.Background>
+            </Label>
+            <Label x:Name="label_logobg" Content="Label" HorizontalAlignment="Left" Height="165" Margin="1.335,0.677,-349.335,-165.677" VerticalAlignment="Top" Width="348" Background="#FF4D6AA8" />
+            <Image x:Name="logo_image" HorizontalAlignment="Left" Height="166" VerticalAlignment="Top" Width="350.145" Source="Logo snippet.png" Stretch="Fill" Margin="0.875,0,-351.02,-166">
+                <Image.OpacityMask>
+                    <ImageBrush ImageSource="Logo snippet.png" />
+                </Image.OpacityMask>
+            </Image>
+        </Grid>
+        <Grid x:Name="disapo_grid" HorizontalAlignment="Left" VerticalAlignment="Top" d:IsLocked="True" d:IsHidden="True">
+            <Label x:Name="label_bgfill_disapo" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,142,-1,-393" Height="258" Width="351">
+                <Label.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="#FFD6F063" Offset="1" />
+                        <GradientStop Color="WhiteSmoke" Offset="0.159" />
+                    </LinearGradientBrush>
+                </Label.Background>
+                <Label x:Name="label_error" Content="Ihr Zugang ist 5 sekunden nicht möglich" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" Width="336.817" FontWeight="Bold" TextOptions.TextHintingMode="Fixed" Background="Red" Foreground="White" Visibility="Hidden" />
+            </Label>
+            <Image x:Name="logo_image_disapo" Height="151" VerticalAlignment="Top" Source="disapo-versandapotheke.png" Stretch="Fill" Margin="0,0,-1,-144">
+                <Image.OpacityMask>
+                    <ImageBrush ImageSource="disapo-versandapotheke.png" />
+                </Image.OpacityMask>
+            </Image>
+        </Grid>
+        <Label x:Name="label_firma" Content="Firma" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="93,206.5,0,0" Grid.IsSharedSizeScope="True" FontSize="18" />
+        <Label x:Name="label_benutzername" Content="Benutzername" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="23.025,246.249,0,0" Grid.IsSharedSizeScope="True" FontSize="18" />
+        <Label x:Name="label_passwort" Content="Passwort" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="67.749,286.999,0,0" Grid.IsSharedSizeScope="True" FontSize="18" />
+        <ComboBox x:Name="combobox_firma" HorizontalAlignment="Left" VerticalAlignment="Top" Width="164.5" Margin="153.583,209.166,0,0" Grid.IsSharedSizeScope="True" FontSize="18" SelectionChanged="combobox_firma_SelectionChanged">
+            <ComboBoxItem Content="Bodyguardpharm" />
+            <ComboBoxItem Content="Disapo.de" />
+        </ComboBox>
+        <TextBox x:Name="textbox_benutzername" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="163.5" Margin="154,252.5,0,0" Background="#FFD1CCCC" Grid.IsSharedSizeScope="True" FontSize="18" />
+        <PasswordBox x:Name="passwordbox_passwort" HorizontalAlignment="Left" VerticalAlignment="Top" Width="164" Margin="154,294,0,0" Height="20.96" Background="#FFD1CCCC" Grid.IsSharedSizeScope="True" FontSize="18" KeyDown="passwordbox_passwort_KeyDown" />
+        <Button x:Name="button_login" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="242.416,331.583,0,0" FontSize="18" Background="#FFECBEBE" Click="button_login_Click" />
+        <Button x:Name="button_close" Content="X" VerticalAlignment="Bottom" Margin="318,0,2,374" Height="24" Background="{Binding Background, ElementName=main_grid}" FontFamily="Segoe UI Black" FontSize="14" Click="button_close_Click" />
+    </Grid>
+</Window>

@@ -1,0 +1,144 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="worksheet" x:Class="Wareneingang.Windows.Beleg.BelegWorksheet"
+        mc:Ignorable="d"
+        Title="belegWorksheet"
+        Height="800"
+        Width="1300"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="CanResizeWithGrip" FontSize="14" MouseDown="worksheet_MouseDown">
+    <Grid x:Name="grid_window">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="135*" />
+            <ColumnDefinition Width="81*" />
+            <ColumnDefinition Width="216*" />
+            <ColumnDefinition Width="215*" />
+            <ColumnDefinition Width="215*" />
+            <ColumnDefinition Width="215*" />
+            <ColumnDefinition Width="215*" />
+        </Grid.ColumnDefinitions>
+        <GroupBox x:Name="groupbox_beleg_info" Header="Beleg Informationen" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" Grid.RowSpan="2" Margin="10,5,81.083,120" FontSize="16">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="135" />
+                    <ColumnDefinition Width="263" />
+                    <ColumnDefinition Width="116*" />
+                    <ColumnDefinition Width="245*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <StackPanel x:Name="stackpanel_labels" Grid.Column="0" Grid.Row="0" Grid.RowSpan="6" Orientation="Vertical">
+                    <Label x:Name="label_Auftragsnumer" Content="Auftragsnr.:" />
+                    <Label x:Name="label_externerefnr" Content="Externerefnr.:" />
+                    <Label x:Name="label_auftragsdatum" Content="Auftrags Datum:" />
+                    <Label x:Name="label_belegdatum" Content="Belegdatum:" />
+                    <Label x:Name="label_kommentar" Content="Kommentar:" />
+                </StackPanel>
+                <StackPanel x:Name="stackpanel_textbox" Grid.Column="1" Grid.Row="0" Grid.RowSpan="6" Orientation="Vertical">
+                    <TextBox x:Name="textbox_Auftragsnumer" BorderThickness="2" Height="{Binding ActualHeight, ElementName=label_Auftragsnumer}" BorderBrush="#FF4B4B4B" IsReadOnly="True" SelectionBrush="{x:Null}" />
+                    <TextBox x:Name="textbox_externerefnr"  BorderThickness="2" Height="{Binding ActualHeight, ElementName=label_externerefnr}" BorderBrush="#FF4B4B4B" IsReadOnly="True" SelectionBrush="{x:Null}" />
+                    <TextBox x:Name="textbox_auftragsdatum" BorderThickness="2" Height="{Binding ActualHeight, ElementName=label_auftragsdatum}" BorderBrush="#FF4B4B4B" IsReadOnly="True" SelectionBrush="{x:Null}" />
+                    <TextBox x:Name="textbox_belegdatum" BorderThickness="2" Height="{Binding ActualHeight, ElementName=label_belegdatum}" BorderBrush="#FF4B4B4B" IsReadOnly="True" SelectionBrush="{x:Null}" />
+                    <TextBox x:Name="textbox_kommentar" BorderThickness="2" Height="{Binding ActualHeight, ElementName=label_kommentar}" Margin="0,0,-355.75,0" BorderBrush="#FF4B4B4B" IsReadOnly="True" SelectionBrush="{x:Null}" />
+                </StackPanel>
+                <StackPanel x:Name="stackpanel_labels1" Grid.Column="2" Grid.Row="0" Grid.RowSpan="6" Orientation="Vertical">
+                    <Label x:Name="label_Kundennr" Content="Kundennr.:" />
+                    <Label x:Name="label_Lieferant" Content="Lieferant:" />
+                    <Label x:Name="label_erstellt_von" Content="Erstellt von:" />
+                    <Label x:Name="label_belegnr" Content="Belegnr:" />
+                </StackPanel>
+                <StackPanel x:Name="stackpanel_textbox1" Grid.Column="3" Grid.Row="0" Grid.RowSpan="6" Orientation="Vertical">
+                    <TextBox x:Name="textbox_Kundennr" BorderThickness="2" Height="{Binding ActualHeight, ElementName=label_Kundennr}" BorderBrush="#FF4B4B4B" IsReadOnly="True" SelectionBrush="{x:Null}" />
+                    <TextBox x:Name="textbox_Lieferant" BorderThickness="2" Height="{Binding ActualHeight, ElementName=label_Lieferant}" BorderBrush="#FF4B4B4B" IsReadOnly="True" SelectionBrush="{x:Null}" />
+                    <TextBox x:Name="textbox_erstellt_von" BorderThickness="2" Height="{Binding ActualHeight, ElementName=label_erstellt_von}" BorderBrush="#FF4B4B4B" IsReadOnly="True" SelectionBrush="{x:Null}" />
+                    <TextBox x:Name="textbox_belegnr" BorderThickness="2" Height="{Binding ActualHeight, ElementName=label_belegnr}" BorderBrush="#FF4B4B4B" IsReadOnly="True" SelectionBrush="{x:Null}" />
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+        <Label x:Name="label_sku_string" Content="SKU / EAN Scannen:" Grid.Column="0" Grid.Row="1" FontSize="16" Margin="134.398,45,86.602,0" Grid.ColumnSpan="3" />
+        <TextBox x:Name="textbox_sku" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="491" BorderBrush="#FF0A0A0A" Background="#FFE0E0E0" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="3" Margin="68.065,50,0,0" KeyDown="textbox_sku_KeyDown" />
+        <Button x:Name="button_scan_sku" Content="SKU/EAN Scannen" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="195.826,50,0,0" IsEnabled="True" Click="button_UpdateBeleg_Click" Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="2" />
+        <Grid x:Name="grid_listview_panel" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="7" Grid.RowSpan="4"  Margin="10,100,45,15" />
+        <ListView x:Name="listview_BelegDaten" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="7" Grid.RowSpan="4" SelectionChanged="BelegDaten_SelectionChanged" Background="White" FontSize="16" Margin="10,100,0,0" Height="{Binding ActualHeight, ElementName=grid_listview_panel}" Width="1249">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="Blue" />
+                            <Setter Property="Foreground" Value="Black" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="Blue" />
+                            <Setter Property="BorderBrush" Value="Black" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="225" DisplayMemberBinding="{Binding PostenView.artikelname}">
+                        <GridViewColumnHeader Tag="artikelname" Content="Artikelname" Click="GridViewColumnHeader_Click" />
+                    </GridViewColumn>
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding artikelnr, PresentationTraceSources.TraceLevel=High}">
+                        <GridViewColumnHeader Tag="artikelnr" Content="Artikelnr" Click="GridViewColumnHeader_Click" />
+                    </GridViewColumn>
+                    <GridViewColumn Width="130" DisplayMemberBinding="{Binding lagerbestand}">
+                        <GridViewColumnHeader Tag="lagerbestand" Content="Lagerbestand" Click="GridViewColumnHeader_Click" />
+                    </GridViewColumn>
+                    <GridViewColumn Width="130" DisplayMemberBinding="{Binding ean}">
+                        <GridViewColumnHeader Tag="ean" Content="EAN" Click="GridViewColumnHeader_Click" />
+                    </GridViewColumn>
+                    <GridViewColumn Width="160" DisplayMemberBinding="{Binding ean_second}">
+                        <GridViewColumnHeader Tag="ean_second" Content="Lieferanten Nummer" Click="GridViewColumnHeader_Click" />
+                    </GridViewColumn>
+                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding anzahl}">
+                        <GridViewColumnHeader Tag="anzahl" Content="Anzahl Bestellt" Click="GridViewColumnHeader_Click" />
+                    </GridViewColumn>
+                    <GridViewColumn Width="100" DisplayMemberBinding="{Binding lagerplatz}">
+                        <GridViewColumnHeader Tag="lagerplatz" Content="Lagerplatz" Click="GridViewColumnHeader_Click" />
+                    </GridViewColumn>
+                    <GridViewColumn Width="140" DisplayMemberBinding="{Binding reservelagerplatz}">
+                        <GridViewColumnHeader Tag="reservelagerplatz" Content="Reservelagerplatz" Click="GridViewColumnHeader_Click" />
+                    </GridViewColumn>
+                    <GridViewColumn Width="78" DisplayMemberBinding="{Binding erfasst}">
+                        <GridViewColumnHeader Tag="erfasst" Content="Gescannt" Click="GridViewColumnHeader_Click" />
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Scann Count Ändern" Click="ContextListview">
+                        <MenuItem.Icon>
+                            <Image Source="icons8_erase_24px.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </ContextMenu>
+            </ListView.ContextMenu>
+        </ListView>
+        <StackPanel x:Name="stackpanel_menu_beleg" Grid.Column="5" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="145.381,20,84.619,0">
+            <Button x:Name="button_close_without_saving" Content="Beleg bearbeitung Abbrechen" Margin="0,0,0,0" BorderBrush="#FFD31616" BorderThickness="3" Click="button_close_without_saving_Click" />
+            <Button x:Name="button_set_lagerplatz" Content="Lagerplatz vergeben" Margin="0,15,0,0" IsEnabled="False" Click="button_set_lagerplatz_Click" />
+            <Button x:Name="button_set_reservelagerplatz" Content="Reservelager vergeben" Margin="0,15,0,0" IsEnabled="False" Click="button_set_reservelagerplatz_Click" />
+            <CheckBox x:Name="checkbox_beleg_abschliessen" Content="Beleg Schliessen" Margin="0,15,0,0" />
+            <Button x:Name="button_close_save_beleg" Content="Beleg Speichern" Margin="0,15,0,0" BorderBrush="#FF0D952C" BorderThickness="3" IsEnabled="False" Click="button_close_save_beleg_Click" />
+        </StackPanel>
+        <Button x:Name="button_admin_beleg_complete" Content="Beleg ist komplett" Grid.Column="4" Grid.Row="0" Margin="157.98,30,117.02,30" Visibility="Visible" Click="Button_admin_beleg_complete_OnClick" Grid.ColumnSpan="2" />
+    </Grid>
+</Window>

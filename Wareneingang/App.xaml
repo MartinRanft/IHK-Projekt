@@ -1,0 +1,21 @@
+﻿<Application x:Class="Wareneingang.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Wareneingang"
+             StartupUri="/Windows/Login/login.xaml">
+    <!--
+    Staqrtupuri zum Window test ändern, hier die links
+
+    /Windows/Login/login.xaml - Login fenster sollte immer als erstes starten
+    /Windows/Belegsearch/belegselection.xaml - hauptfenster nach login
+    /Windows/Beleg/belegWorksheet.xaml - wird durch die Beleg daten gefüllt
+
+    -->
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Simple Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

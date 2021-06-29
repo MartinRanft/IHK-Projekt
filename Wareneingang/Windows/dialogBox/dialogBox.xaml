@@ -1,0 +1,28 @@
+﻿<Window x:Class="Wareneingang.Windows.dialogBox.DialogBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wareneingang.Windows.dialogBox"
+        mc:Ignorable="d"
+        Title="dialogBox" Height="196.804" Width="467.204">
+    <Grid x:Name="grid_main">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label x:Name="label_text" Content="TEST TEXT" Grid.Column="0"  Grid.ColumnSpan="4" Margin="20,17.35,20,27.5" FontSize="14" FontWeight="Bold" Grid.RowSpan="2" />
+        <Label x:Name="label_eingabe" Content="Eingabe:" Grid.Column="0" Grid.Row="1" Margin="22,21.936,111,22.914" Background="{x:Null}" Grid.RowSpan="2" Grid.ColumnSpan="2" />
+        <TextBox x:Name="textbox_userinput" Grid.Row="1" Grid.Column="0" Margin="80,22.85,52.5,32.125" Background="#FFAEA7A7" Grid.ColumnSpan="4" Grid.RowSpan="2" KeyUp="textbox_userinput_KeyUp" />
+        <Button x:Name="button_eingabe" Margin="1,23.725,37,27.225" Grid.Row="2" Width="75" Height="20" Grid.RowSpan="2" Grid.Column="1" Content="_Eingabe" Click="button_eingabe_Click" />
+        <Button x:Name="button_abbruch" Margin="13.5,23.225,24.5,27.725" Grid.Row="2" Width="75" Height="20" Grid.Column="2" Grid.RowSpan="2" Content="_Abbruch" Click="button_abbruch_Click" />
+    </Grid>
+</Window>

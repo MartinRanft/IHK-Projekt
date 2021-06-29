@@ -1,0 +1,74 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="window_belegselection" x:Class="Wareneingang.Windows.Belegsearch.Belegselection"
+        mc:Ignorable="d"
+        Title="belegselection" Height="554.517" Width="1110.6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" WindowStyle="ThreeDBorderWindow">
+    <Grid x:Name="grid_main_belegsearch" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="{Binding ActualWidth, ElementName=window_belegselection}" Height="{Binding ActualHeight, ElementName=window_belegselection}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid x:Name="grid_menu_color" Grid.Row="0" Grid.Column="0" Grid.RowSpan="8" Background="#FF33B1E0"></Grid>
+        <StackPanel x:Name="stackpanel_menu" Grid.Row="0" Grid.Column="0" Margin="5,10,5,0" Grid.RowSpan="7">
+            <Image x:Name="image_user" HorizontalAlignment="Center" VerticalAlignment="Top" Source="icons8_account_64px_1.png" Width="50" ToolTip="" />
+            <Label x:Name="label_username" Content="Martin Ranft" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="0,0,0,0" FontSize="16" />
+            <Label x:Name="label_selection_belegsearch" Content="Beleg Suche" HorizontalAlignment="Center" Margin="-4.808,5,-4.975,0" Background="#FF29728D" Padding="5,5,5,5" Width="{Binding ActualWidth, ElementName=stackpanel_menu}" HorizontalContentAlignment="Center" FontSize="16" />
+            <Label x:Name="label_placeholder1" Content="" />
+            <Label x:Name="label_placeholder2" Content="" />
+            <Label x:Name="label_placeholder3" Content="" />
+            <Label x:Name="label_placeholder4" Content="" />
+            <Label x:Name="label_placeholder5" Content="" />
+            <Label x:Name="label_placeholder6" Content="" />
+            <Label x:Name="label_placeholder7" Content="" />
+            <Label x:Name="label_placeholder8" Content="" />
+            <Label x:Name="label_placeholder9" Content="" />
+            <Label x:Name="label_placeholder10" Content="" />
+            <Label x:Name="label_placeholder11" Content="" />
+            <Image x:Name="image_exit" HorizontalAlignment="Center" Height="50" VerticalAlignment="Center" Width="50" Source="icons8_exit_64px.png" ToolTip="Logout/Exit" Margin="31,0,39.95,0" Cursor="Hand" MouseLeftButtonUp="image_exit_MouseLeftButtonUp" />
+        </StackPanel>
+        <Label x:Name="label_belegnummer" Grid.Row="0" Grid.Column="1" Content="Beleg Nummer:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
+        <Button x:Name="button_belegauswahl" Content=" Beleg Auswählen " HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="6" Grid.Row="0" FontSize="14" Click="button_belegauswahl_Click" />
+        <Grid x:Name="grid_textbox" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="4" Background="Transparent">
+            <TextBox x:Name="textbox_beleg_userinput" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="{Binding ActualWidth, ElementName=grid_textbox}" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Background="#FFDCD7D7" FontSize="16" KeyUp="textbox_beleg_userinput_KeyUp" TextChanged="textbox_beleg_userinput_TextChanged" />
+        </Grid>
+        <ListView x:Name="listview_beleg_auswahl" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="7" Grid.RowSpan="7" Margin="0,15,0,0" Width="{Binding ActualWidth, ElementName=grid_size_for_listview}" Height="401.637" FontSize="16" SelectionChanged="listview_beleg_auswahl_SelectionChanged" MouseDoubleClick="listview_beleg_auswahl_MouseDoubleClick">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="340" DisplayMemberBinding="{Binding firma}">
+                        <GridViewColumnHeader Name="firma" Tag="firma" Content="Lieferant" Click="ausgabenColumnHeader_Click" />
+                    </GridViewColumn>
+                    <GridViewColumn Width="90" DisplayMemberBinding="{Binding belegnr}">
+                        <GridViewColumnHeader x:Name="belegnr" Tag="belegnr" Content="Beleg Nr." Click="ausgabenColumnHeader_Click" />
+                    </GridViewColumn>
+                    <GridViewColumn Width="330" DisplayMemberBinding="{Binding auftragsnr}">
+                        <GridViewColumnHeader Tag="auftragsnr" Content="Auftragsnummer" Click="ausgabenColumnHeader_Click" />
+                    </GridViewColumn>
+                    <GridViewColumn Width="145" DisplayMemberBinding="{Binding betrag}">
+                        <GridViewColumnHeader Tag="betrag" Content="Betrag" Click="ausgabenColumnHeader_Click" />
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Grid x:Name="grid_size_for_listview"  Grid.Column="1" Grid.Row="1" Grid.RowSpan="6" Grid.ColumnSpan="7" Margin="10,5,25,0" />
+        <Image x:Name="icon_aktualisieren" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="7" Margin="33.505,15.499,63.505,14.5" Source="icons8_refresh_40px.png" Width="33.94" MouseLeftButtonDown="icon_aktualisieren_MouseLeftButtonDown" />
+    </Grid>
+</Window>
