@@ -15,9 +15,7 @@ namespace Wareneingang
         public MainWindow()
         {
             InitializeComponent();
-#if DEBUG
-            System.Console.WriteLine("geht");
-#endif
+
             this.textbox_benutzername.Focus();
         }
 
